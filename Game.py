@@ -1,7 +1,6 @@
 '''
-This is an attempt to make a 
+This is an attempt to make a super tic-tac-toe game
 '''
-
 
 def game_board():
     board ="""
@@ -24,7 +23,10 @@ def game_board():
                 |   |       |       |   |       |       |   |   
         """
     return board
-    
+
+def print_board(board):
+    return None
+
 def take_turn(player, board):
     return board
 
