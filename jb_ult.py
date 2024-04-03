@@ -1,4 +1,5 @@
 import os
+import time
 
 def clear_terminal():
     # For Windows
@@ -35,22 +36,28 @@ class ultimate:
         # Set the current player for the small board to the same as the current player
         self.ult_board[self.curr_board].current_player = self.current_player
         # try to make the move
-        if self.ult_board[self.curr_board].make_move(move):
-            # The next move will take place in the board according to the current move
-            self.curr_board = move
-            # Check for a winner
-            if self.ult_board.check_winner(self):
-                print(f"{self.current_player} wins the board!")
-            elif self.ult_board[self.curr_board].winner != None:
-                # if the next board was already won, there is no given next board, need to ask player
-                self.curr_board = None
-            self.current_player = 'O' if self.current_player == 'X' else 'X'
-            return True
-        else:
-            # Otherwise return false
+        self.ult_board[self.curr_board].make_move(move)
+        # The next move will take place in the board according to the current move
+        self.curr_board = move
+        # Check for a winner
+        if self.check_winner():
+            print(f"{self.current_player} wins the board!")
             return False
-                
+        elif self.ult_board[self.curr_board].winner != None:
+            # if the next board was already won, there is no given next board, need to ask player
+            self.curr_board = None
+        elif self.check_draw():
+            print("Its a draw")
+            return False
+        self.current_player = 'O' if self.current_player == 'X' else 'X'
+        return True
     
+    def check_draw(self):
+        for game in self.ult_board:
+            if game.winner == None:
+                return False
+        return True
+        
     def check_winner(self):
         # Check rows, columns, and diagonals for a win
         winning_combinations = [
@@ -96,10 +103,10 @@ class TicTacToe:
         if self.board[position] == ' ':
             # Make the move
             self.board[position] = self.current_player
+            
             # check winner
             if self.check_winner():
                 #print(f'Player {self.winner} wins!')
-                
                 return True
             # if no winner, and no open space, its a draw
             elif ' ' not in self.board:
@@ -113,6 +120,7 @@ class TicTacToe:
             # otherewise swap players
             else:
                 self.current_player = 'O' if self.current_player == 'X' else 'X'
+                self.printable_board()
                 return False
         else:
             print("Invalid move. Position already taken.")
@@ -130,11 +138,11 @@ class TicTacToe:
             if self.board[combo[0]] == self.board[combo[1]] == self.board[combo[2]] != ' ':
                 self.winner = self.current_player
                 if self.winner == 'X':
-                    self.board_arr=["   \     /   ",
-                                    "    \   /    ",
+                    self.board_arr=["    \   /    ",
+                                    "     \ /     ",
                                     "      X      ",
-                                    "    /   \    ",
-                                    "   /     \   "]
+                                    "     / \     ",
+                                    "    /   \    "]
                 else:
                     self.board_arr=["      _      ",
                                     "    /   \    ",
@@ -146,17 +154,17 @@ class TicTacToe:
 
 def move_helper(game):
     try:
+        game.print_ult_board()
         if game.curr_board == None:
             board_x, board_y, pos_x, pos_y = map(int, input(f"Player {game.current_player}, enter your move (format: board_row,board_col row,col): ").split(','))
-            game.curr_board = board_x*3-1 + board_y-1
+            game.curr_board = (board_x-1)*3 + board_y-1
         else: 
-            pos_x, pos_y = map(int, input(f"Player {game.current_player}, enter your move (format: row,col)\n\bYou are playing in board {int((game.curr_board - game.curr_board%3)/3 + 1)}, {(game.curr_board%3) + 1}: ").split(','))
+            pos_x, pos_y = map(int, input(f"Player {game.current_player}, enter your move (format: row,col)\n\tYou are playing in board {int((game.curr_board - (game.curr_board%3)+1)/3 + 1)}, {(game.curr_board%3) + 1}: ").split(','))
         
-        move = pos_x*3-1 + pos_y-1
-        game.print_ult_board()
+        move = (pos_x-1)*3 + pos_y-1
         if game.make_move(move):
-            
-            if game.check_global_winner():
+            game.print_ult_board()
+            if game.check_winner():
                 return True
             else:
                 return False
