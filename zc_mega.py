@@ -5,12 +5,21 @@
 ##############################################################################
 
 from helper_funs.helper_fn import nested_tic_tac_toe_board
+import os
 
 ##############################################################################
 ###
 ###                             Main Code for MINI Game
 ###
 ##############################################################################
+
+def clear_terminal():
+    # For Windows
+    if os.name == 'nt':
+        _ = os.system('cls')
+    # For Unix/Linux/MacOS
+    else:
+        _ = os.system('clear')
 
 class UltimateTicTacToe:
     def __init__(self):
@@ -21,6 +30,7 @@ class UltimateTicTacToe:
         self.board_status = {(x, y): ' ' for x in range(1, 4) for y in range(1, 4)}  # To track which mini-boards have been won or tied
 
     def print_board(self):
+        clear_terminal()
         nested_tic_tac_toe_board(self.boards)
 
     def make_move(self, board_position, position):
