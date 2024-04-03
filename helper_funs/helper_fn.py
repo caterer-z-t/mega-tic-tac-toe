@@ -32,7 +32,7 @@ def nested_tic_tac_toe_board(boards):
                     print(f"  {boards[board_key][(sub_row, 1)]} | {boards[board_key][(sub_row, 2)]} | {boards[board_key][(sub_row, 3)]}  ", end=" ||")
             print('\n', top_rule * 3)
         # Print the bottom rule of each cell row
-        print((midrule + "==") * 3)
+        print((midrule + "===") * 3)
 
 # Sample board with the new key format
 sample_nested_board = {
