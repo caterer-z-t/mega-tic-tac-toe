@@ -12,6 +12,38 @@ This project is a call to arms for enthusiasts, developers, and thinkers. Togeth
 
 Join us on this exciting journey as we pave the way for the future of Mega Tic Tac Toe. Let's transform a simple game of grids into a battleground of wits, strategy, and machine learning brilliance. Welcome to the Mega Tic Tac Toe Machine Learning Pipeline project.
 
+## Rules
+
+### How to Play Mega Tic Tac Toe
+
+Welcome to the comprehensive guide on how to play Mega Tic Tac Toe, an enhanced and more strategic variant of the classic Tic Tac Toe game. Unlike its predecessor, Mega Tic Tac Toe introduces a multi-layered board and strategic play that elevates the game to new heights of complexity and enjoyment. Below are the rules to get you started on this exciting journey.
+
+#### The Board:
+Imagine a standard Tic Tac Toe grid. Now, within each of those nine squares, insert another Tic Tac Toe grid. You now have a Mega Tic Tac Toe board, consisting of 9 mini-boards, each with 9 squares.
+
+#### Objective:
+The goal is to win three mini-boards in a row, just as you would in the classic game. However, winning a mini-board involves a deeper layer of strategy.
+
+#### Gameplay Rules:
+
+1. **First Move**: Begin by marking one of the small squares in any mini-board. This choice is entirely up to the first player.
+
+2. **Dictated Moves**: Here’s where it gets interesting. The square you choose within a mini-board dictates which mini-board your opponent must play in on their next move. For instance, if you mark the top right square in any mini-board, your opponent must then play in the top right mini-board on their subsequent turn.
+
+3. **Winning a Mini-Board**: To claim a mini-board, you need to align three of your marks (X or O) in a row, whether horizontally, vertically, or diagonally, within that mini-board.
+
+4. **Strategic Depth**: Players must strategize not just where to make a winning move in a mini-board, but also consider how their move will affect the opponent’s position in the overall game, potentially setting them up for a favorable or unfavorable position in the next move.
+
+#### Additional Rules:
+
+- **Claiming a Mini-Board**: If your opponent directs you to a mini-board that has already been won, you are free to choose any other mini-board for your next move. This rule adds a layer of strategy, as sending your opponent to an already won mini-board could be advantageous or disadvantageous depending on the situation.
+
+- **Tied Mini-Boards**: If a mini-board results in a tie (neither player wins it), it's recommended that the mini-board counts for neither player. Alternatively, players can decide before the game starts if a tied mini-board should count for both X and O for a more unconventional gameplay experience.
+
+Mega Tic Tac Toe is more than just a game; it’s a mental exercise in strategic planning, deductive reasoning, and conditional thinking. It transforms the simple act of playing Tic Tac Toe into a complex, engaging, and intellectually stimulating experience. So, next time you find the original game lacking in challenge, turn to Mega Tic Tac Toe for an enriching twist on a familiar pastime.
+
+Enjoy the game, and may the best strategist win!
+
 ## Installation
 
 To run the machine learning code, follow these steps:
