@@ -8,3 +8,8 @@ dependencies:
   - numpy  # Include if you're using numpy for any numerical operations
   - gunicorn  # If you plan to deploy your Dash app
   - dash-bootstrap-components  # If you're using Bootstrap components in your app
+  - numpy
+  - tensorflow
+  - keras
+  - scikit-learn
+  - matplotlib
