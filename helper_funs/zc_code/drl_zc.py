@@ -19,6 +19,7 @@ def build_model(state_shape, action_space):
 # 'choose_action' decides the next move based on the current state and the trained model
 
 model = build_model(state_shape=(3, 3, 3, 3), action_space=9*9)  # Example state shape and action space for Ultimate Tic Tac Toe
+num_episodes = 1000
 
 for episode in range(1, num_episodes + 1):
     state = env.reset()  # Reset the environment for a new game
