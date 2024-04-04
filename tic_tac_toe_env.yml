@@ -1,0 +1,9 @@
+name: ultimate-tic-tac-toe-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8  # Specify the Python version you're using
+  - dash
+  - pandas  # If you're using pandas for any data manipulation
+  - numpy  # Include if you're using numpy for any numerical operations
+  - gunicorn  # If you plan to deploy your Dash app
