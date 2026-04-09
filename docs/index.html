@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mega Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+
+    <h1 class="game-title">Mega Tic-Tac-Toe</h1>
+
+    <!-- Settings -->
+    <div class="settings-card">
+      <div class="settings-row">
+        <div class="setting-group">
+          <span class="settings-label">Mode</span>
+          <label class="radio-label">
+            <input type="radio" name="mode" value="pvp" checked /> vs Human
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="mode" value="pvc" /> vs Computer
+          </label>
+        </div>
+
+        <div class="setting-group" id="ai-level-group" style="display:none">
+          <span class="settings-label">AI Level</span>
+          <select id="ai-level">
+            <option value="random">Random</option>
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+            <option value="expert">Expert</option>
+          </select>
+        </div>
+
+        <button id="new-game-btn">New Game</button>
+      </div>
+    </div>
+
+    <!-- Scores -->
+    <div class="score-row">
+      <div class="score-box score-x"   id="score-x">X &nbsp; 0</div>
+      <div class="score-box score-tie" id="score-tie">Draws &nbsp; 0</div>
+      <div class="score-box score-o"   id="score-o">O &nbsp; 0</div>
+    </div>
+
+    <!-- Status -->
+    <div class="game-info" id="game-info">
+      Select a mode and click New Game to start.
+    </div>
+
+    <!-- Board (built by JS) -->
+    <div class="mega-board" id="mega-board"></div>
+
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
