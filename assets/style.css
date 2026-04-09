@@ -1,0 +1,190 @@
+/* =========================================================
+   Mega Tic-Tac-Toe  –  Custom styles
+   Responsive: works on desktop and mobile browsers
+   ========================================================= */
+
+/* ---------- Global ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: #0d0d1a;
+  color: #d0d0e8;
+  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+  min-height: 100vh;
+}
+
+.game-container {
+  max-width: 680px;
+  padding: 0.75rem;
+}
+
+/* ---------- Title ---------- */
+
+.game-title {
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #c8c8ff;
+}
+
+/* ---------- Settings card ---------- */
+
+.settings-card {
+  background: #16162a !important;
+  border: 1px solid #2a2a4a !important;
+}
+
+.settings-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8888bb;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.new-game-btn {
+  min-width: 110px;
+}
+
+/* ---------- Score boxes ---------- */
+
+.score-box {
+  padding: 6px 4px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 3vw, 1rem);
+  letter-spacing: 0.5px;
+}
+
+.score-x   { background: rgba(33,  150, 243, 0.15); color: #64b5f6; }
+.score-tie { background: rgba(158, 158, 158, 0.15); color: #aaa;    }
+.score-o   { background: rgba(244,  67,  54, 0.15); color: #ef9a9a; }
+
+/* ---------- Game info banner ---------- */
+
+.game-info {
+  font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+  min-height: 2rem;
+  color: #b0b0dd;
+  font-weight: 500;
+}
+
+/* ---------- Mega board  (3×3 grid of mini-boards) ---------- */
+
+.mega-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background: #1e1e38;
+  border: 2px solid #2a2a50;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+/* ---------- Mini-board ---------- */
+
+.mini-board {
+  position: relative;
+  background: #12122a;
+  border: 2px solid #2a2a48;
+  border-radius: 5px;
+  padding: 3px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mini-board-active {
+  border-color: #4caf50 !important;
+  box-shadow: 0 0 14px rgba(76, 175, 80, 0.55);
+}
+
+.mini-board-won-x {
+  background: rgba(33, 150, 243, 0.06);
+  border-color: #1565c0 !important;
+}
+
+.mini-board-won-o {
+  background: rgba(244, 67, 54, 0.06);
+  border-color: #b71c1c !important;
+}
+
+.mini-board-draw {
+  background: rgba(100, 100, 100, 0.06);
+  border-color: #555 !important;
+}
+
+/* ---------- Mini-board inner grid ---------- */
+
+.mini-board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+/* ---------- Cell buttons ---------- */
+
+.cell-btn {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #2a2a48;
+  background: #0d0d22;
+  color: #555;
+  font-size: clamp(0.7rem, 2.5vw, 1.15rem);
+  font-weight: 900;
+  cursor: default;
+  border-radius: 3px;
+  transition: background 0.12s ease, border-color 0.12s ease;
+  padding: 0;
+  line-height: 1;
+  /* Minimum touch target */
+  min-height: 28px;
+}
+
+.cell-btn.cell-active {
+  background: #1a1a3a;
+  cursor: pointer;
+  border-color: #3a3a60;
+}
+
+.cell-btn.cell-active:hover {
+  background: #222244;
+  border-color: #4caf50;
+}
+
+.cell-btn.cell-x { color: #42a5f5; }
+.cell-btn.cell-o { color: #ef5350; }
+
+/* ---------- Mini-board winner overlay ---------- */
+
+.mini-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.8rem, 7vw, 3.5rem);
+  font-weight: 900;
+  border-radius: 3px;
+  z-index: 10;
+  background: rgba(10, 10, 30, 0.72);
+  pointer-events: none;
+  letter-spacing: -1px;
+}
+
+.mini-overlay.hidden { display: none; }
+.mini-overlay.won-x  { color: #42a5f5; }
+.mini-overlay.won-o  { color: #ef5350;  }
+.mini-overlay.draw   { color: #777; font-size: clamp(1.2rem, 4vw, 2rem); }
+
+/* ---------- Responsive tweaks ---------- */
+
+@media (max-width: 480px) {
+  .mega-board  { gap: 4px; padding: 4px; }
+  .mini-board  { padding: 2px; }
+  .mini-board-grid { gap: 1px; }
+  .cell-btn    { min-height: 24px; }
+}
